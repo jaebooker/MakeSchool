@@ -17,10 +17,10 @@ def mark_completed(index):
     checklist[index] = u'\u2713' + brief
 def select(code):
     if code == "C":
-        input_item = user_input("Input item: ")
+        input_item = raw_input("Input item: ")
         create(input_item)
     elif code == "R":
-        item_index = user_input("Index number: ")
+        item_index = raw_input("Index number: ")
         read(item_index)
     elif code == "L":
         list_all_items()
@@ -29,12 +29,13 @@ def select(code):
     else:
         print("Unknown Option")
 def user_input(prompt):
-    user_input = input(prompt)
+    user_input = raw_input(prompt)
     return user_input
 running = True
 while running:
-    selection = user_input("Press C to add to list, R to Read from list, L to display list, and E to exit: ")
-    running = select(selection)
+    selection = raw_input("Press C to add to list, R to Read from list, L to display list, and E to exit: ")
+    answer = selection.upper()
+    running = select(answer)
 def test():
     create("Puse")
     print(read(0))
@@ -46,7 +47,7 @@ def test():
     select("R")
     select("C")
     select("L")
-    user_value = user_input("Please Enter a value: ")
+    user_value = raw_input("Please Enter a value: ")
     print(user_value)
     destroy(0)
 #test()
